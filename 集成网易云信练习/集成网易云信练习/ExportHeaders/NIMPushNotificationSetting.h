@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  推送消息显示类型
  */
@@ -40,21 +42,23 @@ typedef NS_ENUM(NSInteger, NIMPushNotificationDisplayType){
 /**
  *  免打扰开始时间:小时
  */
-@property (nonatomic) NSUInteger noDisturbingStartH;
+@property (nonatomic,assign) NSUInteger noDisturbingStartH;
 
 /**
  *  免打扰开始时间:分
  */
-@property (nonatomic) NSUInteger noDisturbingStartM;
+@property (nonatomic,assign) NSUInteger noDisturbingStartM;
 
 /**
  *  免打扰结束时间:小时
  */
-@property (nonatomic) NSUInteger noDisturbingEndH;
+@property (nonatomic,assign) NSUInteger noDisturbingEndH;
 
 /**
  *  免打扰结束时间:分
  */
-@property (nonatomic) NSUInteger noDisturbingEndM;
+@property (nonatomic,assign) NSUInteger noDisturbingEndM;
 
 @end
+
+NS_ASSUME_NONNULL_END

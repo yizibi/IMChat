@@ -7,41 +7,43 @@
 //
 
 #import "AppDelegate.h"
-
 #import "NIMSDK.h"
-
 #import "NIMKit.h"
-
 #import "LX_MyDataManger.h"
 #import "LX_LoginManger.h"
-
 #import "NTESClientUtil.h"
-
+#import "NTESNotificationCenter.h"
 
 NSString *LX_NotificationLogout = @"NTESNotificationLogout";
 
-
+static AppDelegate *_appDelegate = nil;
 @interface AppDelegate ()<NIMLoginManagerDelegate>
 
 @end
 
 @implementation AppDelegate
 
++ (AppDelegate *)appDelegate {
+    return _appDelegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    _appDelegate = self;
 #pragma mark - 初始化云信SDK
     [[NIMSDK sharedSDK] registerWithAppID:@"5932b2777bfd69d2e2fab23ae4519562"
                                   cerName:nil];
 
     [[NIMKit sharedKit] setProvider:[LX_MyDataManger new]];
     
+    //设置通话回调
+    [self setupServices];
+    //初始化监听
     [self commonInitListenEvents];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor grayColor];
     [self.window makeKeyAndVisible];
-    
     [self setupMainViewController];
 
     return YES;
@@ -94,7 +96,6 @@ NSString *LX_NotificationLogout = @"NTESNotificationLogout";
    
     NSString *account = [data account];
     NSString *token = [data token];
-    
     //如果有缓存用户名密码推荐使用自动登录
     if ([account length] && [token length])
     {
@@ -183,6 +184,11 @@ NSString *LX_NotificationLogout = @"NTESNotificationLogout";
     
 }
 
+#pragma mark - logic impl
+- (void)setupServices
+{
+    [[NTESNotificationCenter sharedCenter] start];
+}
 #pragma mark - 远程通知
 - (void)registerAPNs
 {

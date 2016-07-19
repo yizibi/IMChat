@@ -7,13 +7,15 @@
 //
 
 #import "NTESSessionUtil.h"
-//#import "NTESLoginManager.h"
-#import "LX_LoginManger.h"
 
+//没用的垃圾头文件
+//#import "NTESLoginManager.h"
 //#import "NTESSnapchatAttachment.h"
 //#import "NTESJanKenPonAttachment.h"
+//#import "NTESChartletAttachment.h"
 
-#import "NTESChartletAttachment.h"
+
+#import "LX_LoginManger.h"
 #import "UIImage+NTES.h"
 
 

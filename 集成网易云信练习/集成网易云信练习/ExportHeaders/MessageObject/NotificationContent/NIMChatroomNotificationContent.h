@@ -8,6 +8,8 @@
 
 #import "NIMNotificationContent.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  聊天室操作类型
  */
@@ -64,6 +66,14 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
      *  聊天室成员被踢
      */
     NIMChatroomEventTypeKicked        = 313,
+    /**
+     *  聊天室成员被临时禁言
+     */
+    NIMChatroomEventTypeAddMuteTemporarily   = 314,
+    /**
+     *  聊天室成员被解除临时禁言
+     */
+    NIMChatroomEventTypeRemoveMuteTemporarily= 315,
     
 };
 
@@ -74,11 +84,11 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
 /**
  *  聊天室成员ID
  */
-@property (nonatomic,copy,readonly) NSString *userId;
+@property (nullable,nonatomic,copy,readonly) NSString *userId;
 /**
  *  聊天室成员昵称
  */
-@property (nonatomic,copy,readonly) NSString *nick;
+@property (nullable,nonatomic,copy,readonly) NSString *nick;
 
 @end
 
@@ -96,16 +106,24 @@ typedef NS_ENUM(NSInteger, NIMChatroomEventType){
 /**
  *  操作者
  */
-@property (nonatomic,copy,readonly) NIMChatroomNotificationMember *source;
+@property (nullable,nonatomic,copy,readonly) NIMChatroomNotificationMember *source;
 
 /**
  *  被操作者，NSArray<NIMChatroomNotificationMember *>
  */
-@property (nonatomic,copy,readonly) NSArray *targets;
+@property (nullable,nonatomic,copy,readonly) NSArray<NIMChatroomNotificationMember *> *targets;
 
 /**
- *  扩展信息
+ *  通知信息
  */
-@property (nonatomic,copy,readonly) NSString *notifyExt;
+@property (nullable,nonatomic,copy,readonly) NSString *notifyExt;
+
+/**
+ *  拓展信息
+ *  @discusssion 目前只有NIMChatroomEventTypeAddMuteTemp才有拓展信息,拓展信息为NSNumber，表示临时禁言时长
+ */
+@property (nullable,nonatomic,copy,readonly) id ext;
 
 @end
+
+NS_ASSUME_NONNULL_END

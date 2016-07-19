@@ -10,6 +10,7 @@
 #import "LX_TestSessionConfig.h"
 #import "NTESFileLocationHelper.h"
 #import "NTESTimerHolder.h"
+
 #import "NSDictionary+NTESJson.h"
 #import "NTESCustomSysNotificationSender.h"
 #import "NTESChartletAttachment.h"
@@ -19,6 +20,12 @@
 
 #import "NTESGalleryViewController.h"//浏览大图
 #import "NTESSnapchatAttachment.h"//阅后即焚
+
+//音视频
+#import "NTESAudioChatViewController.h"
+#import "UIView+NIMKitToast.h"
+#import "Reachability.h"
+
 
 @import MobileCoreServices;
 @import AVFoundation;
@@ -85,7 +92,6 @@ NIMMediaManagerDelgate>
 
 - (void)dealloc{
     [[[NIMSDK sharedSDK] systemNotificationManager] removeDelegate:self];
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -93,7 +99,6 @@ NIMMediaManagerDelgate>
     [[NIMSDK sharedSDK].mediaManager stopRecord];
     [[NIMSDK sharedSDK].mediaManager stopPlay];
 }
-
 
 -(id<NIMSessionConfig>)sessionConfig
 {
@@ -259,19 +264,55 @@ NIMMediaManagerDelgate>
 }
 
 
+#pragma mark - 辅助方法
+- (BOOL)checkCondition
+{
+    BOOL result = YES;
+    
+    if (![[Reachability reachabilityForInternetConnection] isReachable]) {
+        [self.view nimkit_makeToast:@"请检查网络" duration:2.0 position:NIMKitToastPositionCenter];
+        result = NO;
+    }
+    
+    NSString *currentAccount = [[NIMSDK sharedSDK].loginManager currentAccount];
+    if ([currentAccount isEqualToString:self.session.sessionId]) {
+        [self.view nimkit_makeToast:@"不能和自己通话哦" duration:2.0 position:NIMKitToastPositionCenter];
+        result = NO;
+    }
+    
+    return result;
+}
 
 #pragma mark - inputActions事件
+
 #pragma mark - 语音呼叫
 - (void)mediaAudioChatPressed
 {
     NSLog(@"点击了语音呼叫");
+    if ([self checkCondition]) {
+        //由于音视频聊天里头有音频和视频聊天界面的切换，直接用present的话页面过渡会不太自然，这里还是用push，然后做出present的效果
+        
+        NTESAudioChatViewController *vc = [[NTESAudioChatViewController alloc] initWithCallee:self.session.sessionId];
+        
+//        CATransition *transition = [CATransition animation];
+//        transition.duration = 0.25;
+//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+//        transition.type = kCATransitionPush;
+//        transition.subtype = kCATransitionFromTop;
+//        transition.delegate = self;
+//        [self.navigationController.view.layer addAnimation:transition forKey:nil];
+//        self.navigationController.navigationBarHidden = YES;
+//        [self.navigationController pushViewController:vc animated:NO];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    
 }
 
 
 #pragma mark - 视频呼叫
 - (void)mediaVideoChatPressed
 {
-    
     NSLog(@"点击了视频呼叫");
 //    if ([self checkCondition]) {
 //        //由于音视频聊天里头有音频和视频聊天界面的切换，直接用present的话页面过渡会不太自然，这里还是用push，然后做出present的效果

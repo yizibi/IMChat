@@ -92,6 +92,7 @@ NIMUserManagerDelegate>
     self.navigationItem.leftItemsSupplementBackButton = YES;
 
     self.view.backgroundColor = [UIColor whiteColor];
+    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.backgroundColor = NIMKit_UIColorFromRGB(0xe4e7ec);
     self.tableView.delegate = self;
@@ -163,14 +164,14 @@ NIMUserManagerDelegate>
         [[[NIMSDK sharedSDK] teamManager] addDelegate:self];
     }
     
-    if ([NIMSDKConfig sharedConfig].hostUserInfos) {
+//    if ([NIMSDKConfig sharedConfig].hostUserInfos) {
         //说明托管了用户信息，那就直接加 userManager 的监听
-        [[NIMSDK sharedSDK].userManager addDelegate:self];
-    }else{
+//        [[NIMSDK sharedSDK].userManager addDelegate:self];
+//    }else{
         //没有托管用户信息，就直接加 NIMKit 的监听
         extern NSString *const NIMKitUserInfoHasUpdatedNotification;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserInfoHasUpdatedNotification:) name:NIMKitUserInfoHasUpdatedNotification object:nil];
-    }
+//    }
     
     
 }
@@ -464,6 +465,7 @@ NIMUserManagerDelegate>
     }
     return title;
 }
+
 
 #pragma mark - NIMMediaManagerDelegate
 - (void)recordAudio:(NSString *)filePath didBeganWithError:(NSError *)error {

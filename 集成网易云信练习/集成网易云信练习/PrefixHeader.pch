@@ -11,13 +11,18 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
 /**
  *  第三方
  */
+#import "AFNetworking.h"
+
 #import "NIMProgressHUD.h"
 
 #import "NIMSDK.h"
 #import "NIMKit.h"
+#import "NTESGlobalMacro.h"
 
 #import "UIView+NIMKitToast.h"
 
@@ -29,4 +34,12 @@
 
 #import "UIView+LXFrame.h"
 
+/**
+ *  网络聊天类
+ */
+#import "LXIMChatNetWorkmanger.h"
+
+#define NTES_FORBID_INTERACTIVE_POP - (BOOL)forbidInteractivePop{return YES;}
+
+#endif
 #endif /* PrefixHeader_pch */

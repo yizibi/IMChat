@@ -8,7 +8,6 @@
 
 #import "LX_MyDataManger.h"
 
-//#import "NIMSession.h"
 #import "NIMKit.h"
 
 #import "LX_CustomAttachmentInfo.h"

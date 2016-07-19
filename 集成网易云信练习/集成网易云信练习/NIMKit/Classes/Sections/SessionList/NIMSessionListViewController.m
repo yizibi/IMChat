@@ -39,7 +39,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 375, 667-64) style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     self.tableView.delegate         = self;
     self.tableView.dataSource       = self;
@@ -56,11 +58,11 @@
     extern NSString *const NIMKitTeamInfoHasUpdatedNotification;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTeamInfoHasUpdatedNotification:) name:NIMKitTeamInfoHasUpdatedNotification object:nil];
     extern NSString *const NIMKitUserInfoHasUpdatedNotification;
-    if ([NIMSDKConfig sharedConfig].hostUserInfos) {
-        [[NIMSDK sharedSDK].userManager addDelegate:self];
-    }else{
+//    if ([NIMSDKConfig sharedConfig].hostUserInfos) {
+//        [[NIMSDK sharedSDK].userManager addDelegate:self];
+//    }else{
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserInfoHasUpdatedNotification:) name:NIMKitUserInfoHasUpdatedNotification object:nil];
-    }
+//    }
 }
 
 - (void)reload{

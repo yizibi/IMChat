@@ -47,16 +47,7 @@ NIMUserManagerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if ([NIMSDKConfig sharedConfig].hostUserInfos) {
-        //托管了用户信息，那就直接加 userManager 的监听
-        [[NIMSDK sharedSDK].userManager addDelegate:self];
-        
-    }else{
-        
-        //没有托管用户信息，就直接加 NIMKit 的监听
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserInfoHasUpdatedNotification:) name:NIMKitUserInfoHasUpdatedNotification object:nil];
-    }
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserInfoHasUpdatedNotification:) name:NIMKitUserInfoHasUpdatedNotification object:nil];
     self.tableView.delegate       = self;
     self.tableView.dataSource     = self;
     UIEdgeInsets separatorInset   = self.tableView.separatorInset;
@@ -104,6 +95,7 @@ NIMUserManagerDelegate>
     
 }
 
+
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     
@@ -125,6 +117,7 @@ NIMUserManagerDelegate>
 }
 
 
+
 #pragma mark - 接收到系统通知
 - (void)onReceiveSystemNotification:(NIMSystemNotification *)notification{
     
@@ -138,7 +131,7 @@ NIMUserManagerDelegate>
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.friendlist.count;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -149,7 +142,7 @@ NIMUserManagerDelegate>
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
 
-    cell.textLabel.text = @"wangyang";
+    cell.textLabel.text = @"test";
     
     
     return cell;
@@ -159,7 +152,7 @@ NIMUserManagerDelegate>
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NIMSession *sesstion = [NIMSession session:@"my_wangyang" type:NIMSessionTypeP2P];
+    NIMSession *sesstion = [NIMSession session:@"test" type:NIMSessionTypeP2P];
     LX_TestChatViewController *chatVc = [[LX_TestChatViewController alloc] initWithSession:sesstion];
     
     chatVc.disableCommandTyping = YES;
@@ -169,8 +162,8 @@ NIMUserManagerDelegate>
     
 }
 
-
 - (void)onUserInfoHasUpdatedNotification:(NIMSystemNotification *)usernote{
     
 }
+
 @end

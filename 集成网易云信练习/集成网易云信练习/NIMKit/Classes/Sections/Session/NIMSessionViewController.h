@@ -111,6 +111,7 @@
 
 - (void)uiAddMessages:(NSArray *)messages;
 
+
 /**
  *  删除一条消息
  *
@@ -128,6 +129,7 @@
  *  @discussion 不会触发DB操作，请手动调用SDK里 updateMessage:forSession:completion: 接口
  */
 - (void)uiUpdateMessage:(NIMMessage *)message;
+
 
 /**
  *  调整已读回执状态

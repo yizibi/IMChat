@@ -7,6 +7,7 @@
 //
 
 #import "LX_SessionListController.h"
+#import "LX_TestChatViewController.h"
 
 
 #define SessionListTitle @"test"
@@ -44,6 +45,11 @@
     [self refreshSubview];
 }
 
+- (void)onSelectedRecent:(NIMRecentSession *)recent atIndexPath:(NSIndexPath *)indexPath{
+    LX_TestChatViewController *vc = [[LX_TestChatViewController alloc] initWithSession:recent.session];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)refreshSubview{
     self.emptyTipLabel.lx_centerX = self.view.lx_width * .5f;

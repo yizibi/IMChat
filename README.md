@@ -13,6 +13,11 @@
 * 网易[NIMSDk地址](http://netease.im/im-sdk-demo)
 * [NIMUIKit地址](https://github.com/netease-im/NIM_iOS_UIKit)
 
+**项目文件结构如下图:**
+
+![](http://o9zpq25pv.bkt.clouddn.com/github/IM/IMfileBrief.png)
+
+
 
 ###  **最终目的**
 
@@ -28,6 +33,7 @@
 ![](http://o9zpq25pv.bkt.clouddn.com/github/gif/NIMIMChat.gif)
 
 
-* 进展中....
-	* 音视频聊天...
+2> 音视频已实现,具体见下图:
+
+![](http://o9zpq25pv.bkt.clouddn.com/NIMaudio.gif)
 
