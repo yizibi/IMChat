@@ -51,7 +51,6 @@
     return self;
 }
 
-
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -210,9 +209,7 @@
     self.localRecordingView.hidden = show;
 }
 
-
 #pragma mark - IBAction
-
 - (IBAction)acceptToCall:(id)sender{
     BOOL accept = (sender == self.acceptBtn);
     //防止用户在点了接收后又点拒绝的情况
@@ -226,6 +223,7 @@
     self.muteBtn.selected = self.callInfo.isMute;
 }
 
+
 - (IBAction)switchCamera:(id)sender{
     if (self.cameraType == NIMNetCallCameraFront) {
         self.cameraType = NIMNetCallCameraBack;
@@ -235,7 +233,6 @@
     [[NIMSDK sharedSDK].netCallManager switchCamera:self.cameraType];
     self.switchCameraBtn.selected = (self.cameraType == NIMNetCallCameraBack);
 }
-
 
 - (IBAction)disableCammera:(id)sender{
     self.callInfo.disableCammera = !self.callInfo.disableCammera;
@@ -279,9 +276,7 @@
     [self switchToAudio];
 }
 
-
 #pragma mark - NIMNetCallManagerDelegate
-
 - (void)setLocalVideoLayer:(CALayer *)localVideoLayer{
     _localVideoLayer = localVideoLayer;
 }
@@ -360,11 +355,11 @@
     }
 }
 
+
 - (void)onCall:(UInt64)callID
      netStatus:(NIMNetCallNetStatus)status{
     [self.netStatusView refreshWithNetState:status];
 }
-
 
 
 - (void)onLocalRecordStarted:(UInt64)callID fileURL:(NSURL *)fileURL
@@ -376,7 +371,6 @@
         self.lowMemoryView.hidden = YES;
     }
 }
-
 
 - (void)onLocalRecordError:(NSError *)error
                     callID:(UInt64)callID
@@ -417,9 +411,11 @@
     if (!self.callInfo.startTime) {
         return @"";
     }
+    
     NSTimeInterval time = [NSDate date].timeIntervalSince1970;
     NSTimeInterval duration = time - self.callInfo.startTime;
     return [NSString stringWithFormat:@"%02d:%02d",(int)duration/60,(int)duration%60];
+    
 }
 
 - (void)resetRemoteImage{

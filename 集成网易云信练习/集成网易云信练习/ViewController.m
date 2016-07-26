@@ -77,8 +77,6 @@
 }
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     AnimationView *animaView = [AnimationView loginAnimationView];

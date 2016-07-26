@@ -14,7 +14,7 @@
 //@class NTESJanKenPonAttachment;
 @class NTESSnapchatAttachment;
 @class NTESChartletAttachment;
-//@class NTESWhiteboardAttachment;
+@class NTESWhiteboardAttachment;
 
 @interface NTESSessionMsgConverter : NSObject
 
@@ -34,7 +34,7 @@
 //
 + (NIMMessage *)msgWithChartletAttachment:(NTESChartletAttachment *)attachment;
 
-//+ (NIMMessage *)msgWithWhiteboardAttachment:(NTESWhiteboardAttachment *)attachment;
++ (NIMMessage *)msgWithWhiteboardAttachment:(NTESWhiteboardAttachment *)attachment;
 //
 //+ (NIMMessage *)msgWithFilePath:(NSString*)path;
 //

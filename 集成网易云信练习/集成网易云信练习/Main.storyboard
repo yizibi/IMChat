@@ -43,7 +43,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E61-Fi-hFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314" y="321"/>
+            <point key="canvasLocation" x="-1439" y="340"/>
         </scene>
         <!--添加好友-->
         <scene sceneID="hEX-ZH-nxM">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4j-h7-sZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-969" y="321"/>
+            <point key="canvasLocation" x="-1074" y="340"/>
         </scene>
         <!--设置-->
         <scene sceneID="FuB-NX-Apc">
@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAa-d3-JUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1082" y="-217"/>
+            <point key="canvasLocation" x="-948" y="-247"/>
         </scene>
         <!--消息-->
         <scene sceneID="EeR-LU-MH2">
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxO-us-0nT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1082" y="-759"/>
+            <point key="canvasLocation" x="-1016" y="-803"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uE8-CL-C6R">
@@ -194,7 +194,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Am-qk-xfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1439" y="-253"/>
+            <point key="canvasLocation" x="-1444" y="-247"/>
         </scene>
     </scenes>
     <resources>

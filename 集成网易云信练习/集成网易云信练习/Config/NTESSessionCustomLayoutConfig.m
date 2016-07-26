@@ -17,7 +17,6 @@
 @end
 
 @implementation NTESSessionCustomLayoutConfig
-
 - (instancetype)init{
     self = [super init];
     if (self) {
@@ -27,18 +26,17 @@
 }
 
 
-//查询某个消息对应的内容区域的大小
+
 - (CGSize)contentSize:(NIMMessageModel *)model cellWidth:(CGFloat)width{
     id<NIMSessionContentConfig> config = [self sessionContentConfig:model.message];
     return [config contentSize:width];
 }
 
-//查询某个消息对应的ContentView类名
 - (NSString *)cellContent:(NIMMessageModel *)model{
     id<NIMSessionContentConfig> config = [self sessionContentConfig:model.message];
     return [config cellContent];
 }
-//cell气泡距离整个cell的内间距
+
 - (UIEdgeInsets)contentViewInsets:(NIMMessageModel *)model
 {
     id<NIMSessionContentConfig> config = [self sessionContentConfig:model.message];
@@ -46,15 +44,7 @@
 }
 
 
-- (BOOL)shouldShowAvatar:(NIMMessageModel *)model{
-    return YES;
-}
-- (BOOL)shouldShowNickName:(NIMMessageModel *)model{
-    return YES;
-}
-
 #pragma mark - misc
-//cell内容距离气泡的内间距
 - (id<NIMSessionContentConfig>)sessionContentConfig:(NIMMessage *)message{
     self.contentConfig.message = message;
     return self.contentConfig;

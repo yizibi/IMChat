@@ -25,7 +25,14 @@
 #import "NTESAudioChatViewController.h"
 #import "UIView+NIMKitToast.h"
 #import "Reachability.h"
+#import "NTESVideoChatViewController.h"
 
+//白板
+#import "NTESWhiteboardViewController.h"
+
+#import "NTESFPSLabel.h"
+#import "NTESBundleSetting.h"
+#import "UIView+NTES.h"
 
 @import MobileCoreServices;
 @import AVFoundation;
@@ -52,6 +59,7 @@ NTESTimerHolderDelegate,
 NIMSystemNotificationManagerDelegate,
 NIMMediaManagerDelgate>
 
+
 /** 配置信息 */
 @property (nonatomic, strong) LX_TestSessionConfig *sessionConfig;
 
@@ -65,6 +73,7 @@ NIMMediaManagerDelgate>
 
 @property (nonatomic,strong)    NTESCustomSysNotificationSender *notificaionSender;
 
+@property (nonatomic,strong)    NTESFPSLabel *fpsLabel;
 
 @end
 
@@ -86,6 +95,13 @@ NIMMediaManagerDelgate>
         [[[NIMSDK sharedSDK] systemNotificationManager] addDelegate:self];
     }
     
+    if ([[NTESBundleSetting sharedConfig] showFps])
+    {
+        self.fpsLabel = [[NTESFPSLabel alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:self.fpsLabel];
+        self.fpsLabel.right = self.view.width;
+        self.fpsLabel.top   = self.tableView.top + self.tableView.contentInset.top;
+    }
 
 }
 
@@ -98,6 +114,12 @@ NIMMediaManagerDelgate>
     [super viewWillDisappear:animated];
     [[NIMSDK sharedSDK].mediaManager stopRecord];
     [[NIMSDK sharedSDK].mediaManager stopPlay];
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    self.fpsLabel.right = self.view.width;
+    self.fpsLabel.top   = self.tableView.top + self.tableView.contentInset.top;
 }
 
 -(id<NIMSessionConfig>)sessionConfig
@@ -293,7 +315,30 @@ NIMMediaManagerDelgate>
         //由于音视频聊天里头有音频和视频聊天界面的切换，直接用present的话页面过渡会不太自然，这里还是用push，然后做出present的效果
         
         NTESAudioChatViewController *vc = [[NTESAudioChatViewController alloc] initWithCallee:self.session.sessionId];
-        
+
+//        CATransition *transition = [CATransition animation];
+//        transition.duration = 0.25;
+//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+//        transition.type = kCATransitionPush;
+//        transition.subtype = kCATransitionFromTop;
+//        transition.delegate = self;
+//        [self.navigationController.view.layer addAnimation:transition forKey:nil];
+//        self.navigationController.navigationBarHidden = YES;
+//        [self.navigationController pushViewController:vc animated:NO];
+
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    
+}
+
+
+#pragma mark - 视频呼叫
+- (void)mediaVideoChatPressed
+{
+    NSLog(@"点击了视频呼叫");
+    if ([self checkCondition]) {
+        //由于音视频聊天里头有音频和视频聊天界面的切换，直接用present的话页面过渡会不太自然，这里还是用push，然后做出present的效果
+        NTESVideoChatViewController *vc = [[NTESVideoChatViewController alloc] initWithCallee:self.session.sessionId];
 //        CATransition *transition = [CATransition animation];
 //        transition.duration = 0.25;
 //        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
@@ -305,28 +350,8 @@ NIMMediaManagerDelgate>
 //        [self.navigationController pushViewController:vc animated:NO];
         
         [self presentViewController:vc animated:YES completion:nil];
+
     }
-    
-}
-
-
-#pragma mark - 视频呼叫
-- (void)mediaVideoChatPressed
-{
-    NSLog(@"点击了视频呼叫");
-//    if ([self checkCondition]) {
-//        //由于音视频聊天里头有音频和视频聊天界面的切换，直接用present的话页面过渡会不太自然，这里还是用push，然后做出present的效果
-//        NTESVideoChatViewController *vc = [[NTESVideoChatViewController alloc] initWithCallee:self.session.sessionId];
-//        CATransition *transition = [CATransition animation];
-//        transition.duration = 0.25;
-//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
-//        transition.type = kCATransitionPush;
-//        transition.subtype = kCATransitionFromTop;
-//        transition.delegate = self;
-//        [self.navigationController.view.layer addAnimation:transition forKey:nil];
-//        self.navigationController.navigationBarHidden = YES;
-//        [self.navigationController pushViewController:vc animated:NO];
-//    }
 }
 
 
@@ -345,6 +370,7 @@ NIMMediaManagerDelgate>
 #endif
     }
 }
+
 
 - (BOOL)initCamera{
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -374,7 +400,6 @@ NIMMediaManagerDelgate>
 
 #pragma mark - 相册
 - (void)mediaPicturePressed{
-    
     NSLog(@"点击了相册");
     [self initImagePicker];
     _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -385,13 +410,10 @@ NIMMediaManagerDelgate>
 }
 
 - (void)initImagePicker{
-    
     if (!_imagePicker) {
         _imagePicker = [[UIImagePickerController alloc] init];
         _imagePicker.delegate = self;
     }
-
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -419,7 +441,7 @@ NIMMediaManagerDelgate>
                          [self sendMessage:[NTESSessionMsgConverter msgWithVideo:outputPath]];
                      }
                      else {
-//                         
+//
                          [self.view nimkit_makeToast:@"发送失败"
                                      duration:2
                                      position:NIMKitToastPositionCenter];
@@ -432,14 +454,18 @@ NIMMediaManagerDelgate>
         });
         
     }else{
+        
         UIImage *orgImage = info[UIImagePickerControllerOriginalImage];
         switch (_mode) {
+                
             case NTESImagePickerModeImage:
                 [self sendMessage:[NTESSessionMsgConverter msgWithImage:orgImage]];
                 break;
+                
             case NTESImagePickerModeSnapChat:
                 [self sendSnapchatMessage:orgImage];
                 break;
+                
             default:
                 break;
         }
@@ -460,11 +486,8 @@ NIMMediaManagerDelgate>
 - (void)mediaWhiteBoardPressed
 {
     NSLog(@"点击了白板呼叫");
-//    NTESWhiteboardViewController *vc = [[NTESWhiteboardViewController alloc] initWithSessionID:nil
-//                                                                                        peerID:self.session.sessionId
-//                                                                                         types:NIMRTSServiceReliableTransfer | NIMRTSServiceAudio
-//                                                                                          info:@"白板演示"];
-//    [self presentViewController:vc animated:NO completion:nil];
+    NTESWhiteboardViewController *vc = [[NTESWhiteboardViewController alloc] initWithSessionID:nil peerID:self.session.sessionId types:NIMRTSServiceReliableTransfer | NIMRTSServiceAudio info:@"白板演示"];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 
@@ -518,6 +541,7 @@ NIMMediaManagerDelgate>
         handled = YES;
     }
     
+    //打开阅后即焚
 //    else if([eventName isEqualToString:NIMDemoEventNameOpenSnapPicture])
 //    {
 //        NIMCustomObject *object = event.messageModel.message.messageObject;
@@ -529,6 +553,7 @@ NIMMediaManagerDelgate>
 //        self.currentSingleSnapView = [NTESGalleryViewController alertSingleSnapViewWithMessage:object.message baseView:sender];
 //        handled = YES;
 //    }
+    //关闭阅后即焚
 //    else if([eventName isEqualToString:NIMDemoEventNameCloseSnapPicture])
 //    {
 //        //点击很快的时候可能会触发两次查看，所以这里不管有没有查看过 先强直销毁掉
@@ -554,7 +579,7 @@ NIMMediaManagerDelgate>
 //        handled = YES;
 //        self.currentSingleSnapView = nil;
 //    }
-//    
+//
     if (!handled) {
         NSAssert(0, @"invalid event");
     }

@@ -9,7 +9,6 @@
 #import "NTESNotificationCenter.h"
 
 #import "NTESVideoChatViewController.h"//视频聊天
-
 #import "NTESAudioChatViewController.h"//音频聊天
 
 //#import "NTESMainTabController.h"//tabBar
@@ -25,8 +24,7 @@
 //#import "NTESCustomNotificationObject.h"//自定义通知对象
 //#import "NTESCustomSysNotificationSender.h"//自定义通知发送
 
-//#import "NTESWhiteboardViewController.h"//白板
-
+#import "NTESWhiteboardViewController.h"//白板
 
 #import "LX_MainTabBarViewController.h"
 
@@ -102,6 +100,7 @@ NSString *NTESCustomNotificationCountChanged = @"NTESCustomNotificationCountChan
 //        }
 //    }
 //}
+
 
 #pragma mark - NIMNetCallManagerDelegate
 - (void)onReceive:(UInt64)callID from:(NSString *)caller type:(NIMNetCallType)type message:(NSString *)extendMessage{
@@ -208,37 +207,39 @@ NSString *NTESCustomNotificationCountChanged = @"NTESCustomNotificationCountChan
 }
 
 #pragma mark - 白板
-
 - (void)onRTSRequest:(NSString *)sessionID
                 from:(NSString *)caller
             services:(NSUInteger)types
              message:(NSString *)info
 {
-//    NTESMainTabController *tabVC = [NTESMainTabController instance];
-//    [tabVC.view endEditing:YES];
+   
+
+    LX_MainTabBarViewController *tabVC = [LX_MainTabBarViewController instance];
+    [tabVC.view endEditing:YES];
     
+    if (tabVC.presentedViewController && [tabVC.presentedViewController isKindOfClass:[NTESWhiteboardViewController class]]) {
+        [[NIMSDK sharedSDK].rtsManager responseRTS:sessionID accept:NO option:nil completion:nil];
+    }
+    else {
+        
+        NTESWhiteboardViewController *vc = [[NTESWhiteboardViewController alloc] initWithSessionID:sessionID
+                                                                                            peerID:caller
+                                                                                             types:types
+                                                                                              info:info];
+        if (tabVC.presentedViewController) {
+            __weak LX_MainTabBarViewController *wtabVC = (LX_MainTabBarViewController *)tabVC;
+            
+            [tabVC.presentedViewController dismissViewControllerAnimated:NO completion:^{
+                [wtabVC presentViewController:vc animated:NO completion:nil];
+            }];
+            
+        }else{
+            [[AppDelegate appDelegate].window.rootViewController presentViewController:vc animated:NO completion:nil];
+        }
+    }
     
-//    UITabBarController *tabVC = [UIStoryboard storyboardWithName:@"Main" bundle:nil].instantiateInitialViewController;
-//    [tabVC.view endEditing:YES];
-//    
-//    if (tabVC.presentedViewController && [tabVC.presentedViewController isKindOfClass:[NTESWhiteboardViewController class]]) {
-//        [[NIMSDK sharedSDK].rtsManager responseRTS:sessionID accept:NO option:nil completion:nil];
-//    }
-//    else {
-//        
-//        NTESWhiteboardViewController *vc = [[NTESWhiteboardViewController alloc] initWithSessionID:sessionID
-//                                                                                            peerID:caller
-//                                                                                             types:types
-//                                                                                              info:info];
-//        if (tabVC.presentedViewController) {
-//            __weak NTESMainTabController *wtabVC = (NTESMainTabController *)tabVC;
-//            [tabVC.presentedViewController dismissViewControllerAnimated:NO completion:^{
-//                [wtabVC presentViewController:vc animated:NO completion:nil];
-//            }];
-//        }else{
-//            [tabVC presentViewController:vc animated:NO completion:nil];
-//        }
-//    }
+
+
 }
 
 

@@ -14,9 +14,12 @@
 #import "NTESClientUtil.h"
 #import "NTESNotificationCenter.h"
 
+#import "NTESCustomAttachmentDecoder.h"
+
 NSString *LX_NotificationLogout = @"NTESNotificationLogout";
 
 static AppDelegate *_appDelegate = nil;
+
 @interface AppDelegate ()<NIMLoginManagerDelegate>
 
 @end
@@ -34,12 +37,16 @@ static AppDelegate *_appDelegate = nil;
     [[NIMSDK sharedSDK] registerWithAppID:@"5932b2777bfd69d2e2fab23ae4519562"
                                   cerName:nil];
 
+    
+    [NIMCustomObject registerCustomDecoder:[NTESCustomAttachmentDecoder new]];
+    
     [[NIMKit sharedKit] setProvider:[LX_MyDataManger new]];
     
     //设置通话回调
     [self setupServices];
     //初始化监听
     [self commonInitListenEvents];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor grayColor];

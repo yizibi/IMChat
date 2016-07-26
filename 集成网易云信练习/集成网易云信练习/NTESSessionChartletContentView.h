@@ -10,4 +10,6 @@
 
 @interface NTESSessionChartletContentView : NIMSessionMessageContentView
 
+
+
 @end

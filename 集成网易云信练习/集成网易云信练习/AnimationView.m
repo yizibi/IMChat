@@ -53,7 +53,7 @@
         
         
         //手臂,眼睛闭着的时候,手臂与手同时移动
-        [UIImageView animateWithDuration:.5 animations:^{
+        [UIImageView animateWithDuration:.25 animations:^{
             //清空形变
             //手
             _leftHand.transform = CGAffineTransformIdentity;
@@ -66,7 +66,7 @@
             _rightArm.transform = CGAffineTransformScale(_rightArm.transform, 0.01, 0.01);
         }];
     }else{//眼睛睁开的话,就平移手臂
-        [UIImageView animateWithDuration:.5 animations:^{
+        [UIImageView animateWithDuration:.25 animations:^{
             //平移手臂
             _leftHand.transform = CGAffineTransformMakeTranslation(-_leftarmOffsetX, _offsetY);
             _rightHand.transform = CGAffineTransformMakeTranslation(_rightarmOffsetx, _offsetY);

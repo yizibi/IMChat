@@ -10,7 +10,7 @@
 
 #import "NIMKit.h"
 
-#import "LX_CustomAttachmentInfo.h"
+#import "NTESCustomAttachmentDefines.h"
 
 @interface LX_DataRequest : NSObject
 
@@ -144,7 +144,7 @@
     
     if (type == NIMMessageTypeCustom) {
         NIMCustomObject *object = (NIMCustomObject *)message.messageObject;
-        id<LX_CustomAttachmentInfo> attachment = (id<LX_CustomAttachmentInfo>)object.attachment;
+        id<NTESCustomAttachmentInfo> attachment = (id<NTESCustomAttachmentInfo>)object.attachment;
         if ([attachment respondsToSelector:@selector(formatedMessage)]) {
             text =  [attachment formatedMessage];
         }

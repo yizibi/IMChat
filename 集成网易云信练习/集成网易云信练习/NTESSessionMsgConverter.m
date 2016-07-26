@@ -14,6 +14,9 @@
 
 #import "NTESChartletAttachment.h"
 
+//白板
+#import "NTESSnapchatAttachment.h"
+#import "NTESWhiteboardAttachment.h"
 
 
 @implementation NTESSessionMsgConverter
@@ -64,25 +67,6 @@
     return message;
 }
 
-//+ (NIMMessage*)msgWithLocation:(NTESLocationPoint*)locationPoint{
-//    NIMLocationObject *locationObject = [[NIMLocationObject alloc] initWithLatitude:locationPoint.coordinate.latitude
-//                                                                          longitude:locationPoint.coordinate.longitude
-//                                                                              title:locationPoint.title];
-//    NIMMessage *message               = [[NIMMessage alloc] init];
-//    message.messageObject             = locationObject;
-//    message.apnsContent = @"发来了一条位置信息";
-//    return message;
-//}
-
-//+ (NIMMessage*)msgWithJenKenPon:(NTESJanKenPonAttachment *)attachment
-//{
-//    NIMMessage *message               = [[NIMMessage alloc] init];
-//    NIMCustomObject *customObject     = [[NIMCustomObject alloc] init];
-//    customObject.attachment           = attachment;
-//    message.messageObject             = customObject;
-//    message.apnsContent = @"发来了猜拳信息";
-//    return message;
-//}
 
 + (NIMMessage*)msgWithSnapchatAttachment:(NTESSnapchatAttachment *)attachment
 {
@@ -102,32 +86,6 @@
 }
 
 
-//+ (NIMMessage*)msgWithFilePath:(NSString*)path{
-//    NIMFileObject *fileObject = [[NIMFileObject alloc] initWithSourcePath:path];
-//    NSString *displayName     = path.lastPathComponent;
-//    fileObject.displayName    = displayName;
-//    NIMMessage *message       = [[NIMMessage alloc] init];
-//    message.messageObject     = fileObject;
-//    message.apnsContent = @"发来了一个文件";
-//    return message;
-//}
-
-//+ (NIMMessage*)msgWithFileData:(NSData*)data extension:(NSString*)extension{
-//    NIMFileObject *fileObject = [[NIMFileObject alloc] initWithData:data extension:extension];
-//    NSString *displayName;
-//    if (extension.length) {
-//        displayName     = [NSString stringWithFormat:@"%@.%@",[NSUUID UUID].UUIDString.MD5String,extension];
-//    }else{
-//        displayName     = [NSString stringWithFormat:@"%@",[NSUUID UUID].UUIDString.MD5String];
-//    }
-//    fileObject.displayName    = displayName;
-//    NIMMessage *message       = [[NIMMessage alloc] init];
-//    message.messageObject     = fileObject;
-//    message.apnsContent = @"发来了一个文件";
-//    return message;
-//}
-
-
 + (NIMMessage*)msgWithChartletAttachment:(NTESChartletAttachment *)attachment{
     NIMMessage *message               = [[NIMMessage alloc] init];
     NIMCustomObject *customObject     = [[NIMCustomObject alloc] init];
@@ -137,19 +95,20 @@
     return message;
 }
 
-//+ (NIMMessage*)msgWithWhiteboardAttachment:(NTESWhiteboardAttachment *)attachment
-//{
-//    NIMMessage *message               = [[NIMMessage alloc] init];
-//    NIMCustomObject *customObject     = [[NIMCustomObject alloc] init];
-//    customObject.attachment           = attachment;
-//    message.messageObject             = customObject;
-//    
-//    NIMMessageSetting *setting = [[NIMMessageSetting alloc] init];
-//    setting.apnsEnabled        = NO;
-//    message.setting            = setting;
-//
-//    return message;
-//}
+//白板
++ (NIMMessage*)msgWithWhiteboardAttachment:(NTESWhiteboardAttachment *)attachment
+{
+    NIMMessage *message               = [[NIMMessage alloc] init];
+    NIMCustomObject *customObject     = [[NIMCustomObject alloc] init];
+    customObject.attachment           = attachment;
+    message.messageObject             = customObject;
+    
+    NIMMessageSetting *setting = [[NIMMessageSetting alloc] init];
+    setting.apnsEnabled        = NO;
+    message.setting            = setting;
+
+    return message;
+}
 
 
 + (NIMMessage *)msgWithTip:(NSString *)tip
