@@ -1,9 +1,9 @@
 //
 //  NTESVideoChatViewController.h
-//  NIM
+//  集成网易云信练习
 //
-//  Created by chris on 15/5/5.
-//  Copyright (c) 2015年 Netease. All rights reserved.
+//  Created by 李lucy on 16/7/27.
+//  Copyright © 2016年 com.muyandialog.Co.,Ltd. All rights reserved.
 //
 
 #import "NTESNetChatViewController.h"
@@ -13,8 +13,10 @@
 
 @interface NTESVideoChatViewController : NTESNetChatViewController
 
+
 //通话过程中，从语音聊天切到视频聊天
 - (instancetype)initWithCallInfo:(NetCallChatInfo *)callInfo;
+
 
 @property (nonatomic,strong) IBOutlet UIImageView *remoteView;
 
@@ -49,6 +51,8 @@
 @property (weak, nonatomic) IBOutlet UIView *lowMemoryView;
 
 @property (weak, nonatomic) IBOutlet UIView *lowMemoryRedPoint;
+
+
 
 
 @end

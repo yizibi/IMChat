@@ -93,6 +93,9 @@ NIMUserManagerDelegate>
         }
     }];
     
+    
+    
+    
 }
 
 

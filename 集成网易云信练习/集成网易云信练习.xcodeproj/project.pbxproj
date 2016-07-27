@@ -30,8 +30,6 @@
 		3C2B37A31D3CC8C0004903CE /* NTESNetChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B379C1D3CC8C0004903CE /* NTESNetChatViewController.m */; };
 		3C2B37A41D3CC8C0004903CE /* NTESAudioChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B379E1D3CC8C0004903CE /* NTESAudioChatViewController.m */; };
 		3C2B37A51D3CC8C0004903CE /* NTESAudioChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B379F1D3CC8C0004903CE /* NTESAudioChatViewController.xib */; };
-		3C2B37A61D3CC8C0004903CE /* NTESVideoChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B37A11D3CC8C0004903CE /* NTESVideoChatViewController.m */; };
-		3C2B37A71D3CC8C0004903CE /* NTESVideoChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B37A21D3CC8C0004903CE /* NTESVideoChatViewController.xib */; };
 		3C2B37B01D3CE3FC004903CE /* message.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B37A91D3CE3FC004903CE /* message.wav */; };
 		3C2B37B11D3CE3FC004903CE /* video_chat_tip_HangUp.aac in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B37AA1D3CE3FC004903CE /* video_chat_tip_HangUp.aac */; };
 		3C2B37B21D3CE3FC004903CE /* video_chat_tip_OnCall.aac in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B37AB1D3CE3FC004903CE /* video_chat_tip_OnCall.aac */; };
@@ -210,6 +208,8 @@
 		3C8CF9F91CF471D300918F7F /* LX_ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CF9F81CF471D300918F7F /* LX_ContactsViewController.m */; };
 		3C8CF9FD1CF5528900918F7F /* LX_SessionListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CF9FC1CF5528900918F7F /* LX_SessionListController.m */; };
 		3C8CFA001CF55AB600918F7F /* UIView+LXFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8CF9FF1CF55AB600918F7F /* UIView+LXFrame.m */; };
+		3C94B1751D489FA900A0D274 /* NTESVideoChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C94B1731D489FA900A0D274 /* NTESVideoChatViewController.m */; };
+		3C94B1761D489FA900A0D274 /* NTESVideoChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C94B1741D489FA900A0D274 /* NTESVideoChatViewController.xib */; };
 		3CA4FAE21D3DC5FB006868B3 /* libNIMSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA4FAE11D3DC5FB006868B3 /* libNIMSDK.a */; };
 		3CB6EF4A1D3F638D00C575E6 /* NTESWhiteboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB6EF451D3F638D00C575E6 /* NTESWhiteboardViewController.m */; };
 		3CB6EF4B1D3F638D00C575E6 /* NTESWhiteboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB6EF461D3F638D00C575E6 /* NTESWhiteboardViewController.xib */; };
@@ -290,9 +290,6 @@
 		3C2B379D1D3CC8C0004903CE /* NTESAudioChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESAudioChatViewController.h; sourceTree = "<group>"; };
 		3C2B379E1D3CC8C0004903CE /* NTESAudioChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESAudioChatViewController.m; sourceTree = "<group>"; };
 		3C2B379F1D3CC8C0004903CE /* NTESAudioChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTESAudioChatViewController.xib; sourceTree = "<group>"; };
-		3C2B37A01D3CC8C0004903CE /* NTESVideoChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESVideoChatViewController.h; sourceTree = "<group>"; };
-		3C2B37A11D3CC8C0004903CE /* NTESVideoChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESVideoChatViewController.m; sourceTree = "<group>"; };
-		3C2B37A21D3CC8C0004903CE /* NTESVideoChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTESVideoChatViewController.xib; sourceTree = "<group>"; };
 		3C2B37A91D3CE3FC004903CE /* message.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = message.wav; sourceTree = "<group>"; };
 		3C2B37AA1D3CE3FC004903CE /* video_chat_tip_HangUp.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_chat_tip_HangUp.aac; sourceTree = "<group>"; };
 		3C2B37AB1D3CE3FC004903CE /* video_chat_tip_OnCall.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_chat_tip_OnCall.aac; sourceTree = "<group>"; };
@@ -645,6 +642,9 @@
 		3C8CF9FC1CF5528900918F7F /* LX_SessionListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LX_SessionListController.m; sourceTree = "<group>"; };
 		3C8CF9FE1CF55AB600918F7F /* UIView+LXFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LXFrame.h"; sourceTree = "<group>"; };
 		3C8CF9FF1CF55AB600918F7F /* UIView+LXFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LXFrame.m"; sourceTree = "<group>"; };
+		3C94B1721D489FA900A0D274 /* NTESVideoChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESVideoChatViewController.h; sourceTree = "<group>"; };
+		3C94B1731D489FA900A0D274 /* NTESVideoChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESVideoChatViewController.m; sourceTree = "<group>"; };
+		3C94B1741D489FA900A0D274 /* NTESVideoChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTESVideoChatViewController.xib; sourceTree = "<group>"; };
 		3CA4FAA51D3DC5FB006868B3 /* NIMChatroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMChatroom.h; sourceTree = "<group>"; };
 		3CA4FAA61D3DC5FB006868B3 /* NIMChatroomEnterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMChatroomEnterRequest.h; sourceTree = "<group>"; };
 		3CA4FAA71D3DC5FB006868B3 /* NIMChatroomMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMChatroomMember.h; sourceTree = "<group>"; };
@@ -850,9 +850,9 @@
 				3C2B379D1D3CC8C0004903CE /* NTESAudioChatViewController.h */,
 				3C2B379E1D3CC8C0004903CE /* NTESAudioChatViewController.m */,
 				3C2B379F1D3CC8C0004903CE /* NTESAudioChatViewController.xib */,
-				3C2B37A01D3CC8C0004903CE /* NTESVideoChatViewController.h */,
-				3C2B37A11D3CC8C0004903CE /* NTESVideoChatViewController.m */,
-				3C2B37A21D3CC8C0004903CE /* NTESVideoChatViewController.xib */,
+				3C94B1721D489FA900A0D274 /* NTESVideoChatViewController.h */,
+				3C94B1731D489FA900A0D274 /* NTESVideoChatViewController.m */,
+				3C94B1741D489FA900A0D274 /* NTESVideoChatViewController.xib */,
 				3C2B37911D3CC519004903CE /* View(网络状态view) */,
 				3C2B37901D3CC49F004903CE /* Model */,
 			);
@@ -1966,9 +1966,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C2B37B31D3CE3FC004903CE /* video_chat_tip_onTimer.aac in Resources */,
-				3C2B37A71D3CC8C0004903CE /* NTESVideoChatViewController.xib in Resources */,
 				3C8CF7751CF29FEA00918F7F /* LaunchScreen.storyboard in Resources */,
 				3C2B37B01D3CE3FC004903CE /* message.wav in Resources */,
+				3C94B1761D489FA900A0D274 /* NTESVideoChatViewController.xib in Resources */,
 				3C2B37B51D3CE3FC004903CE /* video_chat_tip_sender.aac in Resources */,
 				3C2B37A51D3CC8C0004903CE /* NTESAudioChatViewController.xib in Resources */,
 				3CB6EF4B1D3F638D00C575E6 /* NTESWhiteboardViewController.xib in Resources */,
@@ -2093,6 +2093,7 @@
 				3C8CF9111CF3EFC800918F7F /* NIMCellLayoutDefaultConfig.m in Sources */,
 				3C8CF8F71CF3EFC800918F7F /* NIMMemberGroupView.m in Sources */,
 				3C8CF90F1CF3EFC800918F7F /* NIMAudioContentConfig.m in Sources */,
+				3C94B1751D489FA900A0D274 /* NTESVideoChatViewController.m in Sources */,
 				3C8CF9321CF3EFC800918F7F /* NIMTeamCardRowItem.m in Sources */,
 				3C2B37971D3CC519004903CE /* NTESVideoChatNetStatusView.m in Sources */,
 				3C8CF8F41CF3EFC800918F7F /* NIMBadgeView.m in Sources */,
@@ -2160,7 +2161,6 @@
 				3C78E70A1D391FEE00F48879 /* NTESSnapchatAttachment.m in Sources */,
 				3C1BD2481D377FCE00ED6AE5 /* NTESSessionCustomLayoutConfig.m in Sources */,
 				3C78E72F1D39248E00F48879 /* NSData+ImageContentType.m in Sources */,
-				3C2B37A61D3CC8C0004903CE /* NTESVideoChatViewController.m in Sources */,
 				3C6B07CF1D3A003F00C1DB15 /* AFURLSessionManager.m in Sources */,
 				3C1BD2291D376F7000ED6AE5 /* NTESChartletAttachment.m in Sources */,
 				3C8CF91F1CF3EFC800918F7F /* NIMSessionViewLayoutManager.m in Sources */,

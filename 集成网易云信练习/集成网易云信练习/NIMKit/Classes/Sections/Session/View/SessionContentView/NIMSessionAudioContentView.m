@@ -60,7 +60,7 @@
     if (!self.model.message.isOutgoingMsg) {
         _durationLabel.textColor = [UIColor blackColor];
     }else{
-        _durationLabel.textColor = [UIColor whiteColor];
+        _durationLabel.textColor = [UIColor blackColor];
     }
     [_durationLabel sizeToFit];
 }

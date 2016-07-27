@@ -33,7 +33,7 @@
     if (!self.model.message.isOutgoingMsg) {
         _textLabel.textColor = [UIColor blackColor];
     }else{
-        _textLabel.textColor = [UIColor whiteColor];
+        _textLabel.textColor = [UIColor blackColor];
     }
 }
 

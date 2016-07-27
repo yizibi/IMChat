@@ -1,9 +1,9 @@
 //
 //  NTESVideoChatViewController.m
-//  NIM
+//  集成网易云信练习
 //
-//  Created by chris on 15/5/5.
-//  Copyright (c) 2015年 Netease. All rights reserved.
+//  Created by 李lucy on 16/7/27.
+//  Copyright © 2016年 com.muyandialog.Co.,Ltd. All rights reserved.
 //
 
 #import "NTESVideoChatViewController.h"
@@ -72,8 +72,8 @@
 {
     self.localRecordingView.layer.cornerRadius = 10.0;
     self.localRecordingRedPoint.layer.cornerRadius = 4.0;
-    self.lowMemoryView.layer.cornerRadius = 10.0;
-    self.lowMemoryRedPoint.layer.cornerRadius = 4.0;
+//    self.lowMemoryView.layer.cornerRadius = 10.0;
+//    self.lowMemoryRedPoint.layer.cornerRadius = 4.0;
     self.refuseBtn.exclusiveTouch = YES;
     self.acceptBtn.exclusiveTouch = YES;
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
@@ -120,13 +120,13 @@
     self.hungUpBtn.hidden   = NO;
     self.connectingLabel.hidden = NO;
     self.connectingLabel.text = @"正在呼叫，请稍候...";
-    self.switchModelBtn.hidden = YES;
+//    self.switchModelBtn.hidden = YES;//音视频转换
     self.switchCameraBtn.hidden = YES;
-    self.muteBtn.hidden = YES;
+//    self.muteBtn.hidden = YES;
     self.disableCameraBtn.hidden = YES;
-    self.localRecordBtn.hidden = YES;
-    self.localRecordingView.hidden = YES;
-    self.lowMemoryView.hidden = YES;
+//    self.localRecordBtn.hidden = YES;
+//    self.localRecordingView.hidden = YES;
+//    self.lowMemoryView.hidden = YES;
     [self.hungUpBtn removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
     [self.hungUpBtn addTarget:self action:@selector(hangup) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -138,13 +138,13 @@
     self.hungUpBtn.hidden   = YES;
     NSString *nick = [NTESSessionUtil showNick:self.callInfo.caller inSession:nil];
     self.connectingLabel.text = [nick stringByAppendingString:@"的来电"];
-    self.muteBtn.hidden = YES;
+//    self.muteBtn.hidden = YES;
     self.switchCameraBtn.hidden = YES;
     self.disableCameraBtn.hidden = YES;
-    self.localRecordBtn.hidden = YES;
-    self.localRecordingView.hidden = YES;
-    self.lowMemoryView.hidden = YES;
-    self.switchModelBtn.hidden = YES;
+//    self.localRecordBtn.hidden = YES;
+//    self.localRecordingView.hidden = YES;
+//    self.lowMemoryView.hidden = YES;
+//    self.switchModelBtn.hidden = YES;
 }
 
 //连接对方界面
@@ -154,13 +154,13 @@
     self.hungUpBtn.hidden   = NO;
     self.connectingLabel.hidden = NO;
     self.connectingLabel.text = @"正在连接对方...请稍后...";
-    self.switchModelBtn.hidden = YES;
+//    self.switchModelBtn.hidden = YES;
     self.switchCameraBtn.hidden = YES;
-    self.muteBtn.hidden = YES;
+//    self.muteBtn.hidden = YES;
     self.disableCameraBtn.hidden = YES;
-    self.localRecordBtn.hidden = YES;
-    self.localRecordingView.hidden = YES;
-    self.lowMemoryView.hidden = YES;
+//    self.localRecordBtn.hidden = YES;
+//    self.localRecordingView.hidden = YES;
+//    self.lowMemoryView.hidden = YES;
     [self.hungUpBtn removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
     [self.hungUpBtn addTarget:self action:@selector(hangup) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -173,17 +173,17 @@
     self.refuseBtn.hidden   = YES;
     self.hungUpBtn.hidden   = NO;
     self.connectingLabel.hidden = YES;
-    self.muteBtn.hidden = NO;
+//    self.muteBtn.hidden = NO;
     self.switchCameraBtn.hidden = NO;
     self.disableCameraBtn.hidden = NO;
-    self.localRecordBtn.hidden = NO;
-    self.switchModelBtn.hidden = NO;
-    self.muteBtn.selected = self.callInfo.isMute;
+//    self.localRecordBtn.hidden = NO;
+//    self.muteBtn.selected = self.callInfo.isMute;
     self.disableCameraBtn.selected = self.callInfo.disableCammera;
-    self.localRecordBtn.selected = self.callInfo.localRecording;
-    self.localRecordingView.hidden = !self.callInfo.localRecording;
-    self.lowMemoryView.hidden = YES;
-    [self.switchModelBtn setTitle:@"语音模式" forState:UIControlStateNormal];
+//    self.localRecordBtn.selected = self.callInfo.localRecording;
+//    self.localRecordingView.hidden = !self.callInfo.localRecording;
+//    self.lowMemoryView.hidden = YES;
+//    self.switchModelBtn.hidden = YES;
+//    [self.switchModelBtn setTitle:@"语音模式" forState:UIControlStateNormal];
     [self.hungUpBtn removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
     [self.hungUpBtn addTarget:self action:@selector(hangup) forControlEvents:UIControlEventTouchUpInside];
     self.localVideoLayer.hidden = NO;
@@ -215,6 +215,7 @@
     //防止用户在点了接收后又点拒绝的情况
     [self response:accept];
 }
+
 
 - (IBAction)mute:(BOOL)sender{
     self.callInfo.isMute = !self.callInfo.isMute;
@@ -252,8 +253,8 @@
     if (self.callInfo.localRecording) {
         if (![self stopLocalRecording]) {
             [self.view nimkit_makeToast:@"无法结束录制"
-                        duration:3
-                        position:NIMKitToastPositionCenter];
+                               duration:3
+                               position:NIMKitToastPositionCenter];
         }
     }
     else {
@@ -265,8 +266,8 @@
             toastText = @"无法开始录制";
         }
         [self.view nimkit_makeToast:toastText
-                    duration:3
-                    position:NIMKitToastPositionCenter];
+                           duration:3
+                           position:NIMKitToastPositionCenter];
     }
 }
 
@@ -325,14 +326,14 @@
             [self resetRemoteImage];
             self.oppositeCloseVideo = YES;
             [self.view nimkit_makeToast:@"对方关闭了摄像头"
-                        duration:2
-                        position:NIMKitToastPositionCenter];
+                               duration:2
+                               position:NIMKitToastPositionCenter];
             break;
         case NIMNetCallControlTypeOpenVideo:
             self.oppositeCloseVideo = NO;
             [self.view nimkit_makeToast:@"对方开启了摄像头"
-                        duration:2
-                        position:NIMKitToastPositionCenter];
+                               duration:2
+                               position:NIMKitToastPositionCenter];
             break;
         default:
             break;
@@ -422,7 +423,7 @@
 #if defined (NTESUseGLView)
     [self.remoteGLView render:nil width:0 height:0];
 #endif
-
+    
     self.remoteView.image = [UIImage imageNamed:@"netcall_bkg.jpg"];
 }
 

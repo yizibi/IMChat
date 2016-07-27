@@ -159,16 +159,26 @@
 
 //切换接听中界面(视频)
 - (void)videoCallingInterface{
+    
     NTESVideoChatViewController *vc = [[NTESVideoChatViewController alloc] initWithCallInfo:self.callInfo];
-    [UIView  beginAnimations:nil context:NULL];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.75];
-    [self.navigationController pushViewController:vc animated:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
-    [UIView commitAnimations];
-    NSMutableArray * vcs = [self.navigationController.viewControllers mutableCopy];
-    [vcs removeObject:self];
-    self.navigationController.viewControllers = vcs;
+//    [UIView  beginAnimations:nil context:NULL];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    [UIView setAnimationDuration:0.75];
+    
+//    [vc  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController:vc animated:YES completion:^{
+        
+        [self removeFromParentViewController];
+    }];
+    
+//    [self.navigationController pushViewController:vc animated:NO];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:NO];
+//    [UIView commitAnimations];
+    
+//    NSMutableArray * vcs = [self.navigationController.viewControllers mutableCopy];
+//    [vcs removeObject:self];
+//    self.navigationController.viewControllers = vcs;
+
 }
 
 - (void)udpateLowSpaceWarning:(BOOL)show {

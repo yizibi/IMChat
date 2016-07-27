@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,231 +7,162 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NTESVideoChatViewController">
             <connections>
-                <outlet property="acceptBtn" destination="JWH-En-CEa" id="LHa-e1-w07"/>
-                <outlet property="connectingLabel" destination="Koi-8h-l2u" id="vMZ-2F-1Dw"/>
-                <outlet property="disableCameraBtn" destination="SHA-Qd-81T" id="Abz-oG-eOu"/>
-                <outlet property="durationLabel" destination="nRA-Kd-y4F" id="wJ6-Hc-SHQ"/>
-                <outlet property="hungUpBtn" destination="R1h-Iv-Nox" id="wEr-59-qHf"/>
-                <outlet property="localRecordBtn" destination="rOF-zH-OmQ" id="Cw9-V3-u61"/>
-                <outlet property="localRecordingRedPoint" destination="G4l-4u-0rq" id="8sM-uB-znd"/>
-                <outlet property="localRecordingView" destination="xFM-aY-iZH" id="Gme-Q5-Yoy"/>
-                <outlet property="localView" destination="fO7-lJ-JAT" id="eRR-Uf-0eV"/>
-                <outlet property="lowMemoryRedPoint" destination="nai-aO-UwO" id="NG4-0A-qN3"/>
-                <outlet property="lowMemoryView" destination="3oH-VS-teN" id="tMN-7e-K6u"/>
-                <outlet property="muteBtn" destination="ip3-BI-1eP" id="dMJ-zq-RQr"/>
-                <outlet property="netStatusView" destination="5t7-D8-IwA" id="rTU-PD-g21"/>
-                <outlet property="refuseBtn" destination="SiS-XY-Kl1" id="LUh-x6-onC"/>
-                <outlet property="remoteView" destination="3Zh-WU-GLj" id="auG-T8-UEB"/>
-                <outlet property="switchCameraBtn" destination="2Iy-dB-B1j" id="xAC-Bp-gw9"/>
-                <outlet property="switchModelBtn" destination="nEn-PH-K0I" id="mbM-Ob-RCT"/>
+                <outlet property="acceptBtn" destination="xYf-xt-TJ7" id="ObV-Wx-fju"/>
+                <outlet property="connectingLabel" destination="kmL-Hf-3JC" id="BN9-Na-Ogp"/>
+                <outlet property="disableCameraBtn" destination="cJ1-sj-ke9" id="kqq-Ku-Alf"/>
+                <outlet property="durationLabel" destination="xud-Ik-1Vp" id="EVi-5q-wg0"/>
+                <outlet property="hungUpBtn" destination="4FW-Oq-r3Y" id="qOD-eB-DOU"/>
+                <outlet property="localView" destination="iJy-63-i5w" id="DmU-vT-Y9x"/>
+                <outlet property="netStatusView" destination="KKx-li-b4k" id="kxC-Xd-eth"/>
+                <outlet property="refuseBtn" destination="LXu-Hf-t1Y" id="aE0-Od-rMG"/>
+                <outlet property="remoteView" destination="tZn-8L-yL3" id="rMO-37-jrD"/>
+                <outlet property="switchCameraBtn" destination="u1R-ei-imR" id="xU0-k8-Nhh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netcall_bkg" id="3Zh-WU-GLj">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netcall_bkg" translatesAutoresizingMaskIntoConstraints="NO" id="tZn-8L-yL3">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <view contentMode="scaleToFill" id="fO7-lJ-JAT">
-                    <rect key="frame" x="241" y="30" width="64" height="98"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R1h-Iv-Nox">
-                    <rect key="frame" x="256" y="516" width="64" height="52"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                    <state key="normal" image="btn_vcancel_normal" backgroundImage="btn_bg_video_normal">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FW-Oq-r3Y" userLabel="挂断">
+                    <rect key="frame" x="157" y="565" width="61" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="SPZ-9L-N7M"/>
+                        <constraint firstAttribute="width" constant="61" id="ccq-4D-EDj"/>
+                    </constraints>
+                    <state key="normal" image="home_calling_btn_hangUp"/>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JWH-En-CEa">
-                    <rect key="frame" x="181" y="464" width="117" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.040248972679037973" green="0.7322837752525253" blue="0.084891297734011897" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xud-Ik-1Vp" userLabel="时长lable">
+                    <rect key="frame" x="0.0" y="20" width="375" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="58" id="IhD-6R-MvW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJ1-sj-ke9" userLabel="关闭摄像头">
+                    <rect key="frame" x="226" y="565" width="57" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="07I-ZS-Ns8"/>
+                        <constraint firstAttribute="width" constant="57" id="JQk-gD-MNA"/>
+                    </constraints>
+                    <state key="normal" image="home_calling_btn_coverCamera"/>
+                    <state key="selected" image="home_calling_btn_UnCoverCamera"/>
+                    <connections>
+                        <action selector="disableCammera:" destination="-1" eventType="touchUpInside" id="iC1-Px-pvj"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ss6-Xc-TcD" userLabel="信息">
+                    <rect key="frame" x="91" y="565" width="58" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="8NK-4x-qtT"/>
+                        <constraint firstAttribute="width" constant="58" id="lpc-w2-ncb"/>
+                    </constraints>
+                    <state key="normal" image="home_calling_btn_comment"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1R-ei-imR" userLabel="切换镜头">
+                    <rect key="frame" x="315" y="40" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="3p6-wU-X7x"/>
+                        <constraint firstAttribute="height" constant="40" id="d8k-qO-9Lp"/>
+                    </constraints>
+                    <state key="normal" image="navgationBarSwichCamera"/>
+                    <connections>
+                        <action selector="switchCamera:" destination="-1" eventType="touchUpInside" id="nTI-Kx-6Z0"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJy-63-i5w" userLabel="本地视频">
+                    <rect key="frame" x="291" y="90" width="64" height="98"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="98" id="72M-Eg-8qc"/>
+                        <constraint firstAttribute="width" constant="64" id="ldU-ku-eVs"/>
+                    </constraints>
+                </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYf-xt-TJ7" userLabel="接听按钮">
+                    <rect key="frame" x="238" y="537" width="117" height="50"/>
+                    <color key="backgroundColor" red="0.040248972680000002" green="0.73228377529999999" blue="0.084891297729999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="117" id="jhB-N6-XMZ"/>
+                        <constraint firstAttribute="height" constant="50" id="m7I-bd-i3f"/>
+                    </constraints>
                     <state key="normal" title="接听">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="acceptToCall:" destination="-1" eventType="touchUpInside" id="4uU-eq-ghh"/>
+                        <action selector="acceptToCall:" destination="-1" eventType="touchUpInside" id="CHU-d6-5rW"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nRA-Kd-y4F">
-                    <rect key="frame" x="0.0" y="18" width="320" height="58"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ip3-BI-1eP">
-                    <rect key="frame" x="0.0" y="516" width="64" height="52"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <state key="normal" image="btn_vvoice_normal" backgroundImage="btn_bg_voice_normal">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" image="btn_voice_disable.png"/>
-                    <state key="selected" image="btn_voice_disable.png"/>
-                    <state key="highlighted" image="btn_vvoice_pressed.png" backgroundImage="btn_bg_voice_pressed.png"/>
-                    <connections>
-                        <action selector="mute:" destination="-1" eventType="touchUpInside" id="BgO-g2-Hy3"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Iy-dB-B1j">
-                    <rect key="frame" x="64" y="516" width="64" height="52"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <state key="normal" image="btn_turn_normal" backgroundImage="btn_bg_voice_normal">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" image="btn_turn_disabled.png"/>
-                    <state key="selected" image="btn_turn_disabled.png"/>
-                    <state key="highlighted" image="btn_turn_pressed.png" backgroundImage="btn_bg_voice_pressed.png"/>
-                    <connections>
-                        <action selector="switchCamera:" destination="-1" eventType="touchUpInside" id="3ZC-0o-4jf"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Koi-8h-l2u">
-                    <rect key="frame" x="0.0" y="255" width="320" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rOF-zH-OmQ" userLabel="Local Record Btn">
-                    <rect key="frame" x="192" y="516" width="64" height="52"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="btn_vrecord_normal" backgroundImage="btn_bg_voice_normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" image="btn_vrecord_pressed.png"/>
-                    <state key="selected" image="btn_vrecord_selected.png"/>
-                    <state key="highlighted" image="btn_vrecord_pressed.png" backgroundImage="btn_bg_voice_pressed.png"/>
-                    <connections>
-                        <action selector="localRecord:" destination="-1" eventType="touchUpInside" id="LoB-pc-0ag"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SHA-Qd-81T">
-                    <rect key="frame" x="128" y="516" width="64" height="52"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" image="btn_camera_normal" backgroundImage="btn_bg_voice_normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="disabled" image="btn_camera_disabled.png"/>
-                    <state key="selected" image="btn_camera_disabled.png"/>
-                    <state key="highlighted" image="btn_camera_pressed.png" backgroundImage="btn_bg_voice_pressed.png"/>
-                    <connections>
-                        <action selector="disableCammera:" destination="-1" eventType="touchUpInside" id="Uoa-OX-Zh3"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nEn-PH-K0I">
-                    <rect key="frame" x="15" y="30" width="92" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="切换语音" image="ic_switch_voice" backgroundImage="btn_switch_av">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="switchCallingModel:" destination="-1" eventType="touchUpInside" id="yP5-vW-CCB"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SiS-XY-Kl1">
-                    <rect key="frame" x="23" y="464" width="117" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-Hf-t1Y">
+                    <rect key="frame" x="20" y="537" width="117" height="50"/>
                     <color key="backgroundColor" red="1" green="0.0581480677" blue="0.1242516311" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ksY-YU-Wai"/>
+                        <constraint firstAttribute="width" constant="117" id="pPD-CV-Ot7"/>
+                    </constraints>
                     <state key="normal" title="拒接">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="acceptToCall:" destination="-1" eventType="touchUpInside" id="yig-H6-JxO"/>
-                    </connections>
                 </button>
-                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="xFM-aY-iZH" userLabel="Local Recording View">
-                    <rect key="frame" x="108" y="322" width="104" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="G4l-4u-0rq" userLabel="Recording Red Point">
-                            <rect key="frame" x="82" y="14" width="8" height="8"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录制中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ik7-GD-Y6E" userLabel="Recording Label">
-                            <rect key="frame" x="16" y="6" width="72.5" height="27"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
-                </view>
-                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="3oH-VS-teN" userLabel="Low Memory View">
-                    <rect key="frame" x="73" y="297" width="175" height="65"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="nai-aO-UwO" userLabel="Recording Red Point">
-                            <rect key="frame" x="118" y="15" width="8" height="8"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你的手机内存已不足10M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OPc-9Y-JeY" userLabel="Low Free Space Label">
-                            <rect key="frame" x="4" y="35" width="165.5" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录制中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mmf-v8-dvt" userLabel="Recording Label">
-                            <rect key="frame" x="51" y="8" width="72.5" height="27"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" id="5t7-D8-IwA" customClass="NTESVideoChatNetStatusView">
-                    <rect key="frame" x="113" y="80" width="95" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmL-Hf-3JC" userLabel="正在连接..">
+                    <rect key="frame" x="187" y="333" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKx-li-b4k" customClass="NTESVideoChatNetStatusView">
+                    <rect key="frame" x="140" y="90" width="95" height="35"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="95" id="8bL-v8-jzT"/>
+                        <constraint firstAttribute="height" constant="35" id="TYs-gG-spr"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="233" y="139"/>
+            <constraints>
+                <constraint firstItem="4FW-Oq-r3Y" firstAttribute="leading" secondItem="ss6-Xc-TcD" secondAttribute="trailing" constant="8" id="4TA-bb-EPa"/>
+                <constraint firstItem="4FW-Oq-r3Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8WJ-rp-sVd"/>
+                <constraint firstItem="tZn-8L-yL3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="A8I-Bk-hMr"/>
+                <constraint firstItem="kmL-Hf-3JC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="AMN-Dv-b9j"/>
+                <constraint firstItem="LXu-Hf-t1Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="B8M-EX-dGp"/>
+                <constraint firstItem="KKx-li-b4k" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="D80-aT-fYw"/>
+                <constraint firstAttribute="bottom" secondItem="LXu-Hf-t1Y" secondAttribute="bottom" constant="80" id="E5R-KH-t8w"/>
+                <constraint firstAttribute="bottom" secondItem="ss6-Xc-TcD" secondAttribute="bottom" constant="50" id="KVj-VH-VcG"/>
+                <constraint firstAttribute="trailing" secondItem="xud-Ik-1Vp" secondAttribute="trailing" id="LE8-jF-VmO"/>
+                <constraint firstAttribute="trailing" secondItem="u1R-ei-imR" secondAttribute="trailing" constant="20" id="MH6-kr-idJ"/>
+                <constraint firstItem="iJy-63-i5w" firstAttribute="top" secondItem="u1R-ei-imR" secondAttribute="bottom" constant="10" id="MPi-k6-G1K"/>
+                <constraint firstItem="cJ1-sj-ke9" firstAttribute="leading" secondItem="4FW-Oq-r3Y" secondAttribute="trailing" constant="8" id="RUe-qe-4VQ"/>
+                <constraint firstItem="u1R-ei-imR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Xct-Ns-RKi"/>
+                <constraint firstAttribute="trailing" secondItem="iJy-63-i5w" secondAttribute="trailing" constant="20" id="YYU-fH-16h"/>
+                <constraint firstAttribute="bottom" secondItem="cJ1-sj-ke9" secondAttribute="bottom" constant="50" id="ZA2-0f-gQl"/>
+                <constraint firstItem="KKx-li-b4k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="aJH-Gw-B0Z"/>
+                <constraint firstAttribute="bottom" secondItem="xYf-xt-TJ7" secondAttribute="bottom" constant="80" id="coy-ji-ecC"/>
+                <constraint firstItem="xud-Ik-1Vp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="gY8-Y6-0ED"/>
+                <constraint firstItem="tZn-8L-yL3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="q83-Vp-7tW"/>
+                <constraint firstAttribute="trailing" secondItem="xYf-xt-TJ7" secondAttribute="trailing" constant="20" id="r4i-KX-Koj"/>
+                <constraint firstAttribute="bottom" secondItem="tZn-8L-yL3" secondAttribute="bottom" id="rbp-no-uFB"/>
+                <constraint firstItem="xud-Ik-1Vp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ron-8b-3gb"/>
+                <constraint firstAttribute="bottom" secondItem="4FW-Oq-r3Y" secondAttribute="bottom" constant="50" id="swa-I1-72F"/>
+                <constraint firstAttribute="trailing" secondItem="tZn-8L-yL3" secondAttribute="trailing" id="vyr-36-t3o"/>
+                <constraint firstItem="kmL-Hf-3JC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zAA-7I-pee"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
     <resources>
-        <image name="btn_bg_video_normal" width="10" height="10"/>
-        <image name="btn_bg_voice_normal" width="10" height="10"/>
-        <image name="btn_bg_voice_pressed.png" width="10" height="10"/>
-        <image name="btn_camera_disabled.png" width="37" height="25"/>
-        <image name="btn_camera_normal" width="30" height="30"/>
-        <image name="btn_camera_pressed.png" width="37" height="25"/>
-        <image name="btn_switch_av" width="92" height="34"/>
-        <image name="btn_turn_disabled.png" width="37" height="25"/>
-        <image name="btn_turn_normal" width="30" height="30"/>
-        <image name="btn_turn_pressed.png" width="37" height="25"/>
-        <image name="btn_vcancel_normal" width="30" height="30"/>
-        <image name="btn_voice_disable.png" width="37" height="25"/>
-        <image name="btn_vrecord_normal" width="30" height="30"/>
-        <image name="btn_vrecord_pressed.png" width="320" height="568"/>
-        <image name="btn_vrecord_selected.png" width="320" height="568"/>
-        <image name="btn_vvoice_normal" width="30" height="30"/>
-        <image name="btn_vvoice_pressed.png" width="37" height="25"/>
-        <image name="ic_switch_voice" width="17" height="17"/>
+        <image name="home_calling_btn_UnCoverCamera" width="52" height="52"/>
+        <image name="home_calling_btn_comment" width="52" height="52"/>
+        <image name="home_calling_btn_coverCamera" width="52" height="52"/>
+        <image name="home_calling_btn_hangUp" width="52" height="52"/>
+        <image name="navgationBarSwichCamera" width="29" height="24"/>
         <image name="netcall_bkg" width="320" height="568"/>
     </resources>
 </document>
