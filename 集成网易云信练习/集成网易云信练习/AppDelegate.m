@@ -34,7 +34,7 @@ static AppDelegate *_appDelegate = nil;
     
     _appDelegate = self;
 #pragma mark - 初始化云信SDK
-    [[NIMSDK sharedSDK] registerWithAppID:@"5932b2777bfd69d2e2fab23ae4519562"
+    [[NIMSDK sharedSDK] registerWithAppID:@"5932b2777bfd69d2e2fab23ae45123412"
                                   cerName:nil];
 
     
